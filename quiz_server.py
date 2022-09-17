@@ -50,6 +50,7 @@ def clientthread(conn):
     conn.send('Welcome to thsi quiz game'.encode('utf-8'))
     conn.send('You will receive a question. The answer to that question will be one of a, b, c, or d\n'.encode('utf-8'))
     conn.send('Good Luck!!\n\n'.encode('utf-8'))
+    index, question, answer = get_random_question_answer(conn)
 
     while True:
         message = conn.recv(2048).decode('utf-8')
