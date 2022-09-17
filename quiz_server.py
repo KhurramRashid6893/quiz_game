@@ -51,7 +51,7 @@ def clientthread(conn):
     conn.send('You will receive a question. The answer to that question will be one of a, b, c, or d\n'.encode('utf-8'))
     conn.send('Good Luck!!\n\n'.encode('utf-8'))
     index, question, answer = get_random_question_answer(conn)
-
+    print(answer)
     while True:
         message = conn.recv(2048).decode('utf-8')
         try:
@@ -78,4 +78,3 @@ while True:
     new_thread = Thread(target = clientthread, args = (conn, addr))
     new_thread.start()
 
-print('All is fine....')
